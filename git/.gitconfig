@@ -1,0 +1,7 @@
+[user]
+	name = Ross Stephenson-Gill
+	email = rossstephensongill@gmail.com
+[push]
+	autoSetupRemote = true
+[init]
+	defaultBranch = main

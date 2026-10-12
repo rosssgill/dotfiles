@@ -1,0 +1,161 @@
+{
+  "reload_style_on_change": true,
+  "layer": "top",
+  "position": "top",
+  "spacing": 0,
+  "height": 26,
+  "modules-left": ["custom/arch", "custom/ws1", "custom/ws2", "custom/ws3", "custom/ws4", "custom/ws5", "hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "custom/media",
+    "tray",
+    "custom/weather",
+    "memory",
+    "backlight",
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "cpu",
+    "battery"
+  ],
+
+  "custom/ws1": {
+    "exec": "~/.config/waybar/scripts/workspace.py 1",
+    "return-type": "json",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 1 })'"
+  },
+  "custom/ws2": {
+    "exec": "~/.config/waybar/scripts/workspace.py 2",
+    "return-type": "json",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 2 })'"
+  },
+  "custom/ws3": {
+    "exec": "~/.config/waybar/scripts/workspace.py 3",
+    "return-type": "json",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 3 })'"
+  },
+  "custom/ws4": {
+    "exec": "~/.config/waybar/scripts/workspace.py 4",
+    "return-type": "json",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 4 })'"
+  },
+  "custom/ws5": {
+    "exec": "~/.config/waybar/scripts/workspace.py 5",
+    "return-type": "json",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({ workspace = 5 })'"
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "cursor": true,
+    "format": "{icon}",
+      "persistent-workspaces": {
+      "*": 5
+    }
+  },
+  "custom/arch": {
+    "format": "",
+    "on-click": "wofi --show drun",
+    "on-click-right": "kitty",
+    "tooltip-format": "Apps (left-click)\nTerminal (right-click)"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": "󰍛",
+    "on-click": "kitty -e btop",
+    "on-click-right": "kitty"
+  },
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "format-alt": "{:%A %d/%m/%Y}",
+    "tooltip-format": "<span>{calendar}</span>"
+  },
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon} {essid}",
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "kitty -e nmtui",
+    "on-click-right": "nm-connection-editor"
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-discharging": "{capacity}% {icon}",
+    "format-charging": "{capacity}% {icon}",
+    "format-plugged": "",
+    "format-icons": {
+      "charging": ["󰢜", "󰂆", "󰂇", "󰂈", "󰢝", "󰂉", "󰢞", "󰂊", "󰂋", "󰂅"],
+      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "format-full": "󰂅",
+    "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}%",
+    "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}%",
+    "interval": 5,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    }
+  },
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "blueman-manager"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "on-click": "pkill -x pavucontrol || pavucontrol",
+    "on-click-right": "pamixer -t",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": ["", "", ""]
+    }
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 6
+  },
+  "backlight": {
+    "format": "{percent}% {icon}",
+    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "memory": {
+    "format": " {used:0.1f}gb",
+    "interval": 2,
+    "on-click": "kitty -e btop"
+  },
+  "custom/weather": {
+    "format": "{}°",
+    "tooltip": true,
+    "interval": 600,
+    "exec": "wttrbar --nerd",
+    "return-type": "json"
+  },
+  "custom/media": {
+    "exec": "~/.config/waybar/scripts/media.py",
+    "return-type": "json",
+    "restart-interval": 5,
+    "on-click": "playerctl play-pause",
+    "on-click-middle": "playerctl previous",
+    "on-click-right": "playerctl next"
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 45
+  },
+}

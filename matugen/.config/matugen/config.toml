@@ -1,0 +1,60 @@
+# Wallpaper-based theming. Run by waypaper after each wallpaper change:
+#   matugen image <wallpaper> --prefer saturation
+[config]
+
+# Standard terminal hues, blended towards the wallpaper so they stay readable and on-theme
+[config.custom_colors]
+red     = { color = "#e06c75", blend = true }
+green   = { color = "#98c379", blend = true }
+yellow  = { color = "#e5c07b", blend = true }
+blue    = { color = "#61afef", blend = true }
+magenta = { color = "#c678dd", blend = true }
+cyan    = { color = "#56b6c2", blend = true }
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/waybar-colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 -x waybar'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/colors.conf'
+post_hook = 'pkill -SIGUSR1 -x kitty'
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hypr-colors.lua'
+output_path = '~/.config/hypr/colors.lua'
+post_hook = 'hyprctl reload'
+
+[templates.wofi]
+input_path = '~/.config/matugen/templates/wofi-style.css'
+output_path = '~/.config/wofi/style.css'
+
+[templates.dunst]
+input_path = '~/.config/matugen/templates/dunst-colors.conf'
+output_path = '~/.config/dunst/dunstrc.d/50-matugen.conf'
+post_hook = 'dunstctl reload'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/gtk.css'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk4-colors.css'
+output_path = '~/.config/gtk-4.0/gtk.css'
+
+# Pywal-format colours for the Pywalfox Firefox extension
+[templates.pywalfox]
+input_path = '~/.config/matugen/templates/pywal-colors.json'
+output_path = '~/.cache/wal/colors.json'
+post_hook = 'pywalfox update'
+
+# Pear Desktop (YouTube Music) - reads this on page load, so press Ctrl+R in the app after a wallpaper change
+[templates.pear]
+input_path = '~/.config/matugen/templates/pear-desktop.css'
+output_path = '~/.config/matugen/generated/pear-desktop.css'
+
+# VS Code colour theme, loaded from a local extension (pick "Matugen" in Preferences > Color Theme)
+[templates.vscode]
+input_path = '~/.config/matugen/templates/vscode-theme.json'
+output_path = '~/.vscode/extensions/local.matugen-theme-0.0.1/themes/matugen.json'
