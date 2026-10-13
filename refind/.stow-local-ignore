@@ -1,0 +1,2 @@
+# Not a stow package: installed to the EFI partition by install.sh
+.*

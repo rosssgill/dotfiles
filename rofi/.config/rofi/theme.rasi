@@ -1,0 +1,62 @@
+/* Colours generated from the wallpaper by matugen */
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 600px;
+    background-color: @bg;
+    border: 2px;
+    border-color: @accent;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+mainbox {
+    children: [ inputbar, listview ];
+    spacing: 4px;
+}
+
+inputbar {
+    children: [ entry ];
+    margin: 4px;
+    padding: 6px 10px;
+    border: 1px;
+    border-color: @outline;
+    border-radius: 6px;
+    background-color: @bg-alt;
+}
+
+entry {
+    placeholder: "Search apps…";
+    placeholder-color: @fg-dim;
+}
+
+listview {
+    lines: 10;
+    scrollbar: false;
+    spacing: 2px;
+}
+
+element {
+    padding: 6px 10px;
+    border-radius: 6px;
+    spacing: 8px;
+}
+
+element selected.normal {
+    background-color: @accent;
+    text-color: @on-accent;
+}
+
+element-icon {
+    size: 24px;
+}
+
+element-text {
+    text-color: inherit;
+    vertical-align: 0.5;
+}

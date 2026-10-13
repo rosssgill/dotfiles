@@ -4,18 +4,17 @@
   "position": "top",
   "spacing": 0,
   "height": 26,
-  "modules-left": ["custom/arch", "custom/ws1", "custom/ws2", "custom/ws3", "custom/ws4", "custom/ws5", "hyprland/window"],
+  "modules-left": ["group/power", "custom/ws1", "custom/ws2", "custom/ws3", "custom/ws4", "custom/ws5", "hyprland/window"],
   "modules-center": ["clock"],
   "modules-right": [
     "custom/media",
-    "tray",
+    "pulseaudio",
     "custom/weather",
     "memory",
     "backlight",
     "network",
     "bluetooth",
-    "pulseaudio",
-    "cpu",
+    "tray",
     "battery"
   ],
 
@@ -53,17 +52,44 @@
       "*": 5
     }
   },
+  "group/power": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "power-option",
+      "transition-left-to-right": true
+    },
+    "modules": ["custom/arch", "custom/lock", "custom/shutdown", "custom/reboot", "custom/suspend", "custom/logout"],
+  },
+  "custom/lock": {
+    "format": "󰌾",
+    "tooltip-format": "Lock",
+    "on-click": "hyprlock"
+  },
+  "custom/shutdown": {
+    "format": "󰐥",
+    "tooltip-format": "Shut down",
+    "on-click": "~/.config/waybar/scripts/confirm.sh 'Shut down?' systemctl poweroff"
+  },
+  "custom/reboot": {
+    "format": "󰜉",
+    "tooltip-format": "Restart",
+    "on-click": "~/.config/waybar/scripts/confirm.sh 'Restart?' systemctl reboot"
+  },
+  "custom/suspend": {
+    "format": "󰤄",
+    "tooltip-format": "Sleep",
+    "on-click": "systemctl suspend"
+  },
+  "custom/logout": {
+    "format": "󰍃",
+    "tooltip-format": "Log out",
+    "on-click": "command -v hyprshutdown >/dev/null && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
+  },
   "custom/arch": {
     "format": "",
-    "on-click": "wofi --show drun",
     "on-click-right": "kitty",
-    "tooltip-format": "Apps (left-click)\nTerminal (right-click)"
-  },
-  "cpu": {
-    "interval": 5,
-    "format": "󰍛",
-    "on-click": "kitty -e btop",
-    "on-click-right": "kitty"
+    "tooltip-format": "Hover for power options\nTerminal (right-click)"
   },
   "clock": {
     "format": "{:%I:%M %p}",

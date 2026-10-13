@@ -5,8 +5,9 @@
   border: 0;
   border-radius: 0;
   min-height: 0;
-  font-family: 'JetBrainsMono Nerd Font';
-  font-size: 14px;
+  font-family: 'DejaVu Sans Mono', 'JetBrainsMono Nerd Font Propo';
+  font-size: 15px;
+  font-weight: 500;
   min-height: 0px;
 }
 
@@ -102,7 +103,6 @@ color: @background;
 #memory,
 #backlight,
 #clock,
-#cpu,
 #battery,
 #network,
 #bluetooth,
@@ -124,7 +124,6 @@ color: @background;
 #memory:hover,
 #clock:hover,
 #backlight:hover,
-#cpu:hover,
 #network:hover,
 #bluetooth:hover,
 #pulseaudio:hover,
@@ -142,7 +141,7 @@ color: @background;
 #custom-screenrecording-indicator,
 #custom-idle-indicator,
 #custom-notification-silencing-indicator {
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 4px;
   padding: 0 11px 0 10px;
   margin-left: 2px;
@@ -279,4 +278,29 @@ tooltip {
   background: @foreground;
   color: @background;
   transition: .7s;
+}
+
+/* Power options that slide out of the Arch logo on hover (group/power drawer) */
+#custom-lock,
+#custom-shutdown,
+#custom-reboot,
+#custom-suspend,
+#custom-logout {
+  font-family: 'JetBrainsMono Nerd Font Propo';
+  font-size: 16px;
+  background-color: @background;
+  color: @foreground;
+  border: .5px solid alpha(@foreground, .4);
+  border-radius: 4px;
+  padding: 0 10px;
+  margin: 5px 2px;
+}
+
+#custom-lock:hover,
+#custom-shutdown:hover,
+#custom-reboot:hover,
+#custom-suspend:hover,
+#custom-logout:hover {
+  background-color: @foreground;
+  color: @background;
 }

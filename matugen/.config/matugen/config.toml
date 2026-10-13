@@ -26,9 +26,9 @@ input_path = '~/.config/matugen/templates/hypr-colors.lua'
 output_path = '~/.config/hypr/colors.lua'
 post_hook = 'hyprctl reload'
 
-[templates.wofi]
-input_path = '~/.config/matugen/templates/wofi-style.css'
-output_path = '~/.config/wofi/style.css'
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
 
 [templates.dunst]
 input_path = '~/.config/matugen/templates/dunst-colors.conf'
@@ -58,3 +58,18 @@ output_path = '~/.config/matugen/generated/pear-desktop.css'
 [templates.vscode]
 input_path = '~/.config/matugen/templates/vscode-theme.json'
 output_path = '~/.vscode/extensions/local.matugen-theme-0.0.1/themes/matugen.json'
+
+[templates.hyprlock]
+input_path = '~/.config/matugen/templates/hyprlock-colors.conf'
+output_path = '~/.config/hypr/hyprlock-colors.conf'
+
+# SDDM login screen (sddm-astronaut-theme); the hook copies it and the wallpaper into the theme
+[templates.sddm]
+input_path = '~/.config/matugen/templates/sddm-astronaut.conf'
+output_path = '~/.config/matugen/generated/sddm-astronaut.conf'
+post_hook = '~/.config/matugen/scripts/sddm-sync.sh'
+
+# rEFInd boot theme inputs; applied with `sudo ~/.dotfiles/refind/install.sh` (the EFI partition is root-only)
+[templates.refind]
+input_path = '~/.config/matugen/templates/refind.env'
+output_path = '~/.config/matugen/generated/refind.env'

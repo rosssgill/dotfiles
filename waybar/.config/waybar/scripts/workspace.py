@@ -21,7 +21,7 @@ ICONS = {
     "discord": "\U000F066F",
     "vesktop": "\U000F066F",
     "kitty": "\U000F011B",
-    "org.kde.dolphin": "\U000F024B",
+    "thunar": "\U000F024B",
     "steam": "\U000F04D3",
     "spotify": "\U000F04C7",
     "code": "\U000F0A1E",

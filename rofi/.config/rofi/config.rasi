@@ -1,0 +1,13 @@
+configuration {
+    modi: "drun,run";
+    show-icons: true;
+    icon-theme: "Adwaita";
+    drun-display-format: "{name}";
+    font: "DejaVu Sans Mono 11";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+}
+
+/* Replaces rofi's built-in theme entirely, so nothing from it leaks through */
+@theme "~/.config/rofi/theme.rasi"

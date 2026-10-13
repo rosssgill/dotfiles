@@ -1,9 +1,10 @@
 waybar/.config/waybar/colors.css
 kitty/.config/kitty/colors.conf
 hypr/.config/hypr/colors.lua
-wofi/.config/wofi/style.css
+rofi/.config/rofi/colors.rasi
 dunst/.config/dunst/dunstrc.d/50-matugen.conf
 gtk-3.0/.config/gtk-3.0/gtk.css
 gtk-4.0/.config/gtk-4.0/gtk.css
 matugen/.config/matugen/generated/
 vscode/.vscode/extensions/local.matugen-theme-0.0.1/themes/matugen.json
+hypr/.config/hypr/hyprlock-colors.conf
