@@ -133,9 +133,9 @@ hl.config({
         rounding       = 10,
         rounding_power = 2,
 
-        -- Change transparency of focused and unfocused windows
-        active_opacity   = 0.95,
-        inactive_opacity = 0.90,
+        -- Windows are opaque; only kitty is transparent (see kitty-transparent rule)
+        active_opacity   = 1.0,
+        inactive_opacity = 1.0,
 
         shadow = {
             enabled      = true,
@@ -232,6 +232,7 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        focus_on_activate       = true,  -- Jump to apps that request focus, e.g. Firefox when a link is clicked elsewhere
     },
 })
 
@@ -412,17 +413,8 @@ hl.window_rule({
     move  = "monitor_w-510 50",
 })
 
--- Keep these fully opaque despite active/inactive_opacity (fullscreen is already opaque via fullscreen_opacity)
-local opaque = "1.0 override 1.0 override"
 hl.window_rule({
-    name    = "opaque-apps",
-    -- VS Code, Firefox, imv (images), satty (screenshot editor), mpv
-    match   = { class = "^(com\\.microsoft\\.VSCode|code|firefox|imv|com\\.gabm\\.satty|mpv)$" },
-    opacity = opaque,
-})
-hl.window_rule({
-    -- Apps that tag their content as photo, video or game
-    name    = "opaque-media-content",
-    match   = { content = "^(photo|video|game)$" },
-    opacity = opaque,
+    name    = "kitty-transparent",
+    match   = { class = "^kitty$" },
+    opacity = "0.95 0.90",
 })

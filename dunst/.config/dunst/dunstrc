@@ -1,0 +1,19 @@
+# dunst only reads dunstrc.d/ (matugen colours) when this main file exists
+# Shaped like the waybar modules: dark box, thin translucent primary border, 4px corners
+[global]
+    font = DejaVu Sans Mono Medium 11
+    origin = top-right
+    # Lines up with waybar's right edge; Hyprland already pushes it below the bar
+    offset = (7, 5)
+    width = (300, 400)
+    corner_radius = 4
+    frame_width = 1
+    gap_size = 4
+    padding = 8
+    horizontal_padding = 12
+    text_icon_padding = 12
+    separator_height = 0
+    icon_position = left
+    max_icon_size = 40
+    progress_bar_corner_radius = 4
+    progress_bar_frame_width = 0
