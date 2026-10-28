@@ -3,6 +3,8 @@
 [global]
     font = DejaVu Sans Mono Medium 11
     origin = top-right
+    # Show on the monitor the mouse is on, not always the first one
+    follow = mouse
     # Lines up with waybar's right edge; Hyprland already pushes it below the bar
     offset = (7, 5)
     width = (300, 400)
